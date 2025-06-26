@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Website Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+        }
+
+        header {
+            background-color: #d5d6d8;
+            color: #000;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 600;
+            
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 8px 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 1px;
+            margin: 0 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #d5d6d8;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto 20px;
+            padding: 35px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #d5d6d8;
+            border-radius: 8px;
+            border: 2px solid #000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-image: url('https://i.pinimg.com/originals/24/3f/89/243f89252a505b0e446f89403976a70f.gif');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .content-box, .skinny-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .content-box {
+            width: 48%;
+        }
+
+        .content-box h2, .skinny-box h2 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+            color: #333;
+            margin: 0 0 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            font-size: 1.5em;
+        }
+
+        .content-box p, .skinny-box p {
+            font-size: 1em;
+            color: #555;
+            text-align: center;
+        }
+
+        .skinny-box {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 0;
+        }
+
+        .right-box { margin-left: auto; }
+        .center-box { margin: auto; }
+        .left-box { margin-right: auto; }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            font-size: 1em;
+        }
+        .popup-box {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: none; /* hidden by default */
+      z-index: 999;
+      max-width: 250px;
+        }
+
+/*GIFS*/
+.gif-box {
+    background-image: url('https://i.pinimg.com/originals/3e/81/79/3e8179c305605896b1f82db0005ad199.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 48%;
+}
+
+        
+        
+        
+        /* Banner styles */
+
+        .banner-container {
+    position: relative;
+    width: 100%;
+}
+.banner-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;      /* halfway down vertically */
+    left: 5%;      /* 5% from the left side */
+    transform: translate(0, -50%);  /* only adjust vertical centering now */
+    color: black;
+    font-size: 1.2em;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+.fixed-circle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 70px;
+      height: 70px;
+      background-color: rgb(0, 255, 247);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .fixed-circle img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+.mySlides {
+      display: none;
+      width: 100%;
+    }
+
+    .mySlides img {
+      width: 100%;
+      display: block;
+    }
+
+
+    .active {
+      background-color: #717171;
+    }
+    .chatbox {
+      visibility: hidden;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 500px;
+    height: 400px; /* Set a fixed height for the chatbox */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: none; /* Hidden by default */
+    z-index: 999;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+#messages {
+    flex: 1; /* Take up remaining space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    box-sizing: border-box;
+    max-height: 100%; /* Ensure it doesn't exceed the chatbox height */
+}
+
+#messageToSend {
+    width: calc(100% - 20px); /* Full width minus padding */
+    margin: 5px 10px;
+}
+
+.chatbox button {
+    margin: 5px 10px;
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>James McAllister</h1>
+</header>
+
+<nav>
+    <a href="#">About Me</a>
+    <a href="#">Contact</a>
+    <a href="#">Projects</a>
+</nav>
+<div class="container">
+    <div class="main-content">
+        <div class="skinny-box">
+            <h2>About Me</h2>
+            <p>Skinny box with big banner below it. INFORMATION ABOUT ME.</p>
+        </div>
+        <div class="banner-container">
+            <img src="https://miro.medium.com/v2/resize:fit:1400/0*o2lmbWhfEJziX3dz"
+                 alt="Banner Image">
+                 <div class="banner-text">
+                    <h2>Quotes</h2>
+                    <p>Information or such</p>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="main-content">
+        <div class="content-box left-box">
+            <h2>Shop</h2>
+            <p>Some possible products of the shop</p>
+        </div>
+
+        <div class="content-box right-box">
+            <h2>Slideshow</h2>
+            <div class="mySlides">
+                <img src="https://d3nt9em9l1urz8.cloudfront.net/media/catalog/product/cache/3/image/600x600/9df78eab33525d08d6e5fb8d27136e95/d/v/dv0991-101-1-women.jpg" alt="Slide 1">
+              </div>
+            
+              <div class="mySlides">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3t-phRXZQc1aMOujQR2MCAtM3rxyGrDPBMg&s" alt="Slide 2">
+              </div>
+            
+              <div class="mySlides">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQM3U5SMcv9t5J4vsZYMswdUFAUPNsDkHwwA&s" alt="Slide 3">
+              </div>
+            
+              <div class="mySlides">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg5C41fVWBk0V8XVVMFgA4CH_CKdFAt2LTbQ&s" alt="Slide 4">
+              </div>
+            
+              <div class="mySlides">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQM3U5SMcv9t5J4vsZYMswdUFAUPNsDkHwwA&s" alt="Slide 5">
+              </div>
+            
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class = "fixed-circle" onclick="togglePopup()">
+    <div class="circle">
+        <img src="https://icons.veryicon.com/png/o/miscellaneous/2px-common-icons/message-63.png" alt="Chatbot Icon">
+    </div>
+    <div id="popup" class="popup-box">
+        <p>Chatting With ____</p>
+      </div>
+</div>
+<div id="chatbox" class="chatbox">
+  <div id="messages"></div>
+  <input id="messageToSend" type="text" placeholder="Type a message..." />
+  <button onclick="sendMessage()">Send Message</button>
+</div>
+
+<footer>
+    <p>James McAllister</p>
+</footer>
+
+</body>
+
+<!-- JAVA SCRIPTTTTTTT-->
+
+
+<script>
+    function togglePopup() {
+  const popup = document.getElementById('chatbox');
+  if (popup.style.visibility === 'visible') {
+    popup.style.visibility = 'hidden';
+    popup.style.opacity = '0';
+  } else {
+    popup.style.visibility = 'visible';
+    popup.style.opacity = '1';
+  }
+}
+
+    let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 3000); // Change image every 3 seconds
+  }
+
+  function currentSlide(n) {
+    slideIndex = n - 1;
+    showSlides();
+  }
+
+  
+  
+  
+  let socket;
+
+
+  async function sendMessage() {
+    const input = document.getElementById("messageToSend");
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    // Display the message in the chatbox immediately
+    const messageArea = document.getElementById("messages");
+    messageArea.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
+    messageArea.scrollTop = messageArea.scrollHeight; // Scroll to the bottom
+
+    if (!socket || socket.readyState === WebSocket.CLOSED) {
+        socket = new WebSocket('ws://localhost:3000');
+
+        socket.addEventListener('open', () => {
+            console.log("connected");
+        });
+
+        socket.addEventListener('message', event => {
+            console.log(event.data);
+
+            let data;
+            try {
+                data = JSON.parse(event.data);
+                messageArea.innerHTML += `<p><strong>${data.author}:</strong> ${data.content}</p>`;
+            } catch (ex) {
+                data = event.data;
+                messageArea.innerHTML += `<p>${data}</p>`;
+            }
+
+            // Scroll to the bottom of the messages container
+            messageArea.scrollTop = messageArea.scrollHeight;
+        });
+
+        socket.addEventListener('error', err => {
+            console.error('WebSocket error:', err);
+        });
+
+        socket.addEventListener('close', () => {
+            console.log('🔴 Disconnected');
+        });
+    }
+
+    if (socket.readyState === WebSocket.CONNECTING) {
+        await new Promise(resolve => {
+            socket.addEventListener("open", resolve, { once: true });
+        });
+        console.log("🟢 Connected");
+    }
+
+    // Send the message to the WebSocket server
+    if (socket.readyState === WebSocket.OPEN) {
+        socket.send(msg);
+        console.log("→", msg);
+        input.value = ""; // Clear the input field
+    } else {
+        console.error("Socket isn’t open (state=", socket.readyState, ")");
+    }
+
+}
+document.getElementById("messageToSend").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent the default action (e.g., form submission)
+        sendMessage(); // Call the sendMessage function
+    }
+});
+  </script>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c5e9ff;
+            color: #333;
+        }
+
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: #94979a;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Glide effect applied to all sections */
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(60px); /* Start from below */
+            animation: glide 1.5s forwards; /* Animation applied */
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Keyframes for the glide animation */
+        @keyframes glide {
+            0% {
+                opacity: 0;
+                transform: translateY(50px); /* Start from below */
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* End at normal position */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>James McAllister</h1>
+        <p>Engineer | Designer | Student</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/Users/jpmac1102/Desktop/Visual Stdio Projects/Website Files/About me.html">About Me</a>
+        <a href="/Users/jpmac1102/Desktop/Visual Stdio Projects/Website Files/Projects.html">Projects</a>
+    </nav>
+
+    <!-- First Project Section -->
+    <section id="project1">
+        <h2 style = "font-size: 30px">Portfolio Website</h2>
+        <p style = "text-align: center; font-size: 24px;">Created a personal portfolio website to showcase my work, skills, and projects. Used HTML, and CSS3 to design and develop the site.</p>
+    </section>
+
+    <!-- Second Project Section -->
+    <section id="project2">
+        <h2 style = "font-size: 30px">BeneFit 1.0</h2>
+        <p style = "text-align: center; font-size: 24px;">In the early design and development process of a social media site dedicated to the nutrition and promoting physical and mental health of the users while still being able to share and interact with friends.</p>
+
+    </section>
+
+    <!-- Third Project Section -->
+    <section id="project3">
+        <h2 style = "font-size: 30px">Black Jack</h2>
+        <div>
+            <p style = "text-align: center; font-size: 24px;">Fully functioning black jack game including currency, betting, front end graphics and a leaderbaord in progres. This project uses Java in the backend 
+                with (INSERT) in the front end using Microsoft Visual Studio to combine the languages to form the game.
+            </p>
+        </div>
+
+    </section>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Footer -->
+    <footer>
+        <p>(267)-768-8243&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jpmac1102@outlook.com</p>
+    </footer>
+</body>
+
+</html>

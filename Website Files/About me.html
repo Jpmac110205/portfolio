@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c5e9ff;
+            color: #333;
+        }
+
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: #94979a;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Glide effect applied to all sections */
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(60px); /* Start from below */
+            animation: glide 1.5s forwards; /* Animation applied */
+        }
+
+        .center {
+            display: block;
+             margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+}
+
+        h2 {
+            color: #333;
+        }
+
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Keyframes for the glide animation */
+        @keyframes glide {
+            0% {
+                opacity: 0;
+                transform: translateY(50px); /* Start from below */
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* End at normal position */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>James McAllister</h1>
+        <p>Engineer | Designer | Student</p>
+    </header>
+
+      <!-- Navigation -->
+      <nav>
+        <a href="/Users/jpmac1102/Desktop/Visual Stdio Projects/Website Files/About me.html">About Me</a>
+        <a href="/Users/jpmac1102/Desktop/Visual Stdio Projects/Website Files/Projects.html">Projects</a>
+    </nav>
+    
+    <!-- Passion Section -->
+    <section id="passion">
+        <h2 style = "font-size: 30px">Passion</h2>
+        <p style = "text-align: center; font-size: 24px;">
+            As long as I can remeber I have wanted to code. I started coding at the age of 10 with block coding in Scratch which would develop into a passion that I 
+            would continue til the present day. I would code and creare videogames in my free time at home on my used $150 hand-me-down laptop. I have leanred multiple 
+            coding languages in high school including java, python and javascript. Since then I have additionally started to learn HTML and C. Software Engineering
+             has been and always will be my dream and I love doing it.
+             <br>
+
+             <img src = "/Users/jpmac1102/Desktop/Visual Stdio Projects/Website Files/Screenshot 2025-01-27 at 10.19.12 PM.png" style = "width: 200px; height: 150px" class = "center">
+             This was one of the first games I ever made for a school project in the 7th grade.
+        </p>
+    </section>
+        </p>
+    </section>
+
+    <!-- Languages Section -->
+    <section id="languages">
+        <h2 style = "font-size: 30px">Languages</h2>
+        <p style = "text-align: center; font-size: 24px;">
+            <li style = "font-size: 24px;">Java</li>
+            <li style = "font-size: 24px;">JavaScript</li>
+            <li style = "font-size: 24px;">Python</li>
+            <li style = "font-size: 24px;">HTML</li>
+            <li style = "font-size: 24px;">CSS</li>
+        </p>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 style = "font-size: 30px">Involvement</h2>
+        <p style = "text-align: center; font-size: 24px;">
+           I graduated Neshaminy High School in Langhorne PA, with a 4.32 weighted GPA (3.89 unweighted) and ranked 30/780 in my class. I was involved with the National
+           Honors Society, Varisty Football, Varsity Track and Field, Newspaper and, Concert Choir.
+           <br>
+           I am a freshman in the Wood Honors College at Shippensburg University.
+           Also I am currently pursuring a batchelors degree of science and arts in Software Engineering with minors in Mathematics and Computer Science.
+           I am a member of the Shippensburg Lacrosse Team and Shippensburg Programming Team.
+           <br>
+           <img src = "/Users/jpmac1102/Desktop/Visual Stdio Projects/Website Files/B9DED3F7-D80D-446A-9F56-9AC318A9490E.PNG" style = "width: 200px; height: 250px">
+           <img src = "/Users/jpmac1102/Desktop/Visual Stdio Projects/Website Files/Screenshot_20230909-233116.png" style = "width: 250px; height: 250px">
+           <img src = "/Users/jpmac1102/Desktop/Visual Stdio Projects/Website Files/C4F60C28-D60C-483D-8996-A5F4F5F1F307.JPG" style = "width: 200px; height: 250px" >
+           <br>
+           <br>
+           (Expected Graduation: December 2027 - May 2028)
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2  style = "font-size: 30px">Contact</h2>
+        <p style = "text-align: center; font-size: 24px;">If you'd like to get in touch, feel free to email me at <strong>jpmac1102@outook.com</strong> or reach out on 
+            <a href = "https://www.linkedin.com/in/james-mcallister-83854730b/?trk=public-profile-join-page"; style = "text-align: center; font-size: 24px;">LinkedIn</a>
+            or view my resume here. <a href = https://drive.google.com/file/d/1oXJq1jhdxJBIkyQHeCfL87Ly5tz6qQEU/view?usp=sharing"; style = "text-align: center; font-size: 24px;">Resume</a>
+        </p> 
+        
+
+    </section>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Footer -->
+    <footer>
+        <p>(267)-768-8243&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jpmac1102@outlook.com</p>
+    </footer>
+</body>
+
+</html>
