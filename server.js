@@ -20,6 +20,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'COMMISION.html'));
 });
 
+app.get('/projects', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Projects.html'));
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'CONTACT.html'));
+});
+
 // support section
 const clients = new Set();
 

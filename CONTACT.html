@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Website Template</title>
+    <title>Contact - James McAllister</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7fc;
+            background-color: #000000;
         }
 
         header {
@@ -36,6 +36,9 @@
             background-color: #333;
             padding: 8px 0;
             font-family: 'Times New Roman', Times, serif;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
@@ -47,7 +50,7 @@
         }
 
         nav a:hover {
-            background-color: #d5d6d8;
+            background-color: #71747a;
             border-radius: 4px;
             padding: 8px 12px;
             font-weight: 600;
@@ -66,7 +69,7 @@
             border-radius: 8px;
             border: 2px solid #000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-image: url('https://i.pinimg.com/originals/24/3f/89/243f89252a505b0e446f89403976a70f.gif');
+            background-image: url('https://i.imgur.com/ZgQbD7F.jpeg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -88,7 +91,10 @@
         }
 
         .content-box {
-            width: 48%;
+            width: 100%;
+            margin: 0 auto 20px auto;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .content-box h2, .skinny-box h2 {
@@ -115,9 +121,19 @@
             margin-bottom: 0;
         }
 
-        .right-box { margin-left: auto; }
-        .center-box { margin: auto; }
-        .left-box { margin-right: auto; }
+        .right-box { 
+            margin-left: auto;
+            width: 65%;}
+        .center-box {
+            margin: auto;
+            font-size: large;
+            text-align: center;
+}
+        .left-box {
+             margin-right: auto;
+             width: 65%;
+             font-size: large;
+         }
 
         footer {
             background-color: #333;
@@ -150,7 +166,7 @@
 
 /*GIFS*/
 .gif-box {
-    background-image: url('https://i.pinimg.com/originals/3e/81/79/3e8179c305605896b1f82db0005ad199.gif');
+    background-image: url('https://i.imgur.com/ZgQbD7F.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -178,9 +194,9 @@
 
 .banner-text {
     position: absolute;
-    top: 50%;      /* halfway down vertically */
-    left: 5%;      /* 5% from the left side */
-    transform: translate(0, -50%);  /* only adjust vertical centering now */
+    top: 50%;     
+    left: 5%;     
+    transform: translate(0, -50%);  
     color: black;
     font-size: 1.2em;
     text-align: left;
@@ -193,7 +209,7 @@
       right: 20px;
       width: 70px;
       height: 70px;
-      background-color: rgb(0, 255, 247);
+      background-color: rgb(168, 176, 175);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -208,15 +224,8 @@
       object-fit: cover;
       border-radius: 50%;
     }
-.mySlides {
-      display: none;
-      width: 100%;
-    }
 
-    .mySlides img {
-      width: 100%;
-      display: block;
-    }
+
 
 
     .active {
@@ -228,93 +237,126 @@
     bottom: 20px;
     right: 20px;
     width: 500px;
-    height: 400px; /* Set a fixed height for the chatbox */
+    height: 400px; 
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    display: none; /* Hidden by default */
+    display: none; 
     z-index: 999;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
+    flex-direction: column; 
 }
 #messages {
-    flex: 1; /* Take up remaining space */
-    overflow-y: auto; /* Enable vertical scrolling */
+    flex: 1; 
+    overflow-y: auto;
     padding: 10px;
     box-sizing: border-box;
-    max-height: 100%; /* Ensure it doesn't exceed the chatbox height */
+    max-height: 100%;
 }
 
 #messageToSend {
-    width: calc(100% - 20px); /* Full width minus padding */
+    width: calc(100% - 20px);
     margin: 5px 10px;
 }
 
 .chatbox button {
     margin: 5px 10px;
 }
+.about-photo {
+    float: right;
+    width: 150px;      
+    height: 150px;     
+    object-fit: cover;
+    margin: 0 0 10px 20px; /* Top, Right, Bottom, Left */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.icon-marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    height: 60px;
+    margin-top: 10px;
+}
+
+.icon-track {
+   display: inline-block;
+    white-space: nowrap;
+    animation: marquee 18s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.icon-track img {
+    display: inline-block;
+    margin: 0 16px;
+    vertical-align: middle;
+}
+.profile-icon-link {
+    margin-left: 40px;
+  margin-right: 40px;
+  display: inline-block;
+}
+
+
     </style>
 </head>
 <body>
 
-<header>
-    <h1>James McAllister</h1>
-</header>
+
 
 <nav>
-    <a href="#">About Me</a>
-    <a href="#">Contact</a>
-    <a href="#">Projects</a>
+    <a href="/">About Me</a>
+    <a href="/contact">Contact</a>
+    <a href="/projects">Projects</a>
 </nav>
 <div class="container">
     <div class="main-content">
         <div class="skinny-box">
-            <h2>About Me</h2>
-            <p>Skinny box with big banner below it. INFORMATION ABOUT ME.</p>
+            <h2>Profiles</h2>
+            <p>
+  <a href="https://www.linkedin.com/in/jpmac1102/" target="_blank" class="profile-icon-link">
+    <img src="https://images.rawpixel.com/image_png_social_square/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kMS0xMC5wbmc.png" alt="LinkedIn Logo" width="60" height="60" style="border-radius:12px;">
+  </a>
+  <a href="https://github.com/Jpmca110205" target="_blank" class="profile-icon-link">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" width="60" height="60" style="border-radius:12px;">
+  </a>
+</p>
         </div>
-        <div class="banner-container">
-            <img src="https://miro.medium.com/v2/resize:fit:1400/0*o2lmbWhfEJziX3dz"
-                 alt="Banner Image">
-                 <div class="banner-text">
-                    <h2>Quotes</h2>
-                    <p>Information or such</p>
-                </div>
-        </div>
+        
     </div>
 </div>
 
 <div class="container">
     <div class="main-content">
-        <div class="content-box left-box">
-            <h2>Shop</h2>
-            <p>Some possible products of the shop</p>
+        <div class="content-box center-box">
+            <h2>Contacts</h2>
+            <p> <bullet> 
+                <p>Phone: (267)  768 - 8243</p>
+                <p>Email: <a href="mailto:Jpmac1102@outlook.com">Jpmac1102@outlook.com</a></p>
+            </bullet></p>
+</div>
+<!-- ...existing code... -->
         </div>
+        <br>
 
-        <div class="content-box right-box">
-            <h2>Slideshow</h2>
-            <div class="mySlides">
-                <img src="https://d3nt9em9l1urz8.cloudfront.net/media/catalog/product/cache/3/image/600x600/9df78eab33525d08d6e5fb8d27136e95/d/v/dv0991-101-1-women.jpg" alt="Slide 1">
-              </div>
-            
-              <div class="mySlides">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3t-phRXZQc1aMOujQR2MCAtM3rxyGrDPBMg&s" alt="Slide 2">
-              </div>
-            
-              <div class="mySlides">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQM3U5SMcv9t5J4vsZYMswdUFAUPNsDkHwwA&s" alt="Slide 3">
-              </div>
-            
-              <div class="mySlides">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg5C41fVWBk0V8XVVMFgA4CH_CKdFAt2LTbQ&s" alt="Slide 4">
-              </div>
-            
-              <div class="mySlides">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQM3U5SMcv9t5J4vsZYMswdUFAUPNsDkHwwA&s" alt="Slide 5">
-              </div>
-            
-            </div>
-            
-        </div>
+
+        <div class="content-box center-box">
+    <h2>Resume</h2>
+    <a href="https://drive.google.com/file/d/1TMPOFCfAzhuD67U694Lm07fd_f7l8pM5/view?usp=share_link" target="_blank">
+        <img src="https://i.imgur.com/gfT343k.png" alt="Resume Preview" width="120" style="border-radius:20px; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+        <br>
+        <span style="font-size:1.1em; color:#333;">Preview Resume</span>
+    </a>
+</div>
     </div>
 </div>
 <div class = "fixed-circle" onclick="togglePopup()">
@@ -340,6 +382,14 @@
 <!-- JAVA SCRIPTTTTTTT-->
 
 
+
+
+
+
+
+
+
+
 <script>
     function togglePopup() {
   const popup = document.getElementById('chatbox');
@@ -352,33 +402,55 @@
   }
 }
 
-    let slideIndex = 0;
-  showSlides();
-
-  function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 3000); // Change image every 3 seconds
-  }
-
-  function currentSlide(n) {
-    slideIndex = n - 1;
-    showSlides();
-  }
+    
 
   
-  
-  
-  let socket;
+// WebSocket connection setup
+let socket;
 
+// Connect once when the page loads
+function connectSocket() {
+    socket = new WebSocket('ws://localhost:3000');
 
-  async function sendMessage() {
+    socket.addEventListener('open', () => {
+        console.log("🟢 Connected to server");
+    });
+
+    socket.addEventListener('message', event => {
+        console.log('Received from server:', event.data);
+        const messageArea = document.getElementById("messages");
+        let data;
+        try {
+            data = JSON.parse(event.data);
+            // Handle different message types
+            if (data.type === "history" && Array.isArray(data.messages)) {
+                data.messages.forEach(msg =>
+                    messageArea.innerHTML += `<p><strong>${msg.author}:</strong> ${msg.content}</p>`
+                );
+            } else if (data.type === "chat" || data.type === "discord") {
+                messageArea.innerHTML += `<p><strong>${data.author}:</strong> ${data.content}</p>`;
+            }
+        } catch (ex) {
+            messageArea.innerHTML += `<p>${event.data}</p>`;
+        }
+        messageArea.scrollTop = messageArea.scrollHeight;
+    });
+
+    socket.addEventListener('error', err => {
+        console.error('WebSocket error:', err);
+    });
+
+    socket.addEventListener('close', () => {
+        console.log('🔴 Disconnected');
+        // Optionally, try to reconnect after a delay
+        setTimeout(connectSocket, 2000);
+    });
+}
+
+// Call connectSocket once on page load
+connectSocket();
+
+async function sendMessage() {
     const input = document.getElementById("messageToSend");
     const msg = input.value.trim();
     if (!msg) return;
@@ -386,62 +458,33 @@
     // Display the message in the chatbox immediately
     const messageArea = document.getElementById("messages");
     messageArea.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
-    messageArea.scrollTop = messageArea.scrollHeight; // Scroll to the bottom
+    messageArea.scrollTop = messageArea.scrollHeight;
 
-    if (!socket || socket.readyState === WebSocket.CLOSED) {
-        socket = new WebSocket('ws://localhost:3000');
-
-        socket.addEventListener('open', () => {
-            console.log("connected");
-        });
-
-        socket.addEventListener('message', event => {
-            console.log(event.data);
-
-            let data;
-            try {
-                data = JSON.parse(event.data);
-                messageArea.innerHTML += `<p><strong>${data.author}:</strong> ${data.content}</p>`;
-            } catch (ex) {
-                data = event.data;
-                messageArea.innerHTML += `<p>${data}</p>`;
-            }
-
-            // Scroll to the bottom of the messages container
-            messageArea.scrollTop = messageArea.scrollHeight;
-        });
-
-        socket.addEventListener('error', err => {
-            console.error('WebSocket error:', err);
-        });
-
-        socket.addEventListener('close', () => {
-            console.log('🔴 Disconnected');
-        });
+    // FIX: Check if socket is initialized
+    if (!socket) {
+        console.error("WebSocket is not initialized.");
+        return;
     }
 
     if (socket.readyState === WebSocket.CONNECTING) {
         await new Promise(resolve => {
             socket.addEventListener("open", resolve, { once: true });
         });
-        console.log("🟢 Connected");
     }
 
-    // Send the message to the WebSocket server
     if (socket.readyState === WebSocket.OPEN) {
         socket.send(msg);
-        console.log("→", msg);
-        input.value = ""; // Clear the input field
+        input.value = "";
     } else {
         console.error("Socket isn’t open (state=", socket.readyState, ")");
     }
-
 }
+
 document.getElementById("messageToSend").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-        event.preventDefault(); // Prevent the default action (e.g., form submission)
-        sendMessage(); // Call the sendMessage function
+        event.preventDefault();
+        sendMessage();
     }
 });
-  </script>
+</script>
 </html>
