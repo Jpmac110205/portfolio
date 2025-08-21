@@ -7,11 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary: #4f46e5;
-  --secondary: #1f2937;
-  --bg-dark: #0f172a;
+  --primary: rgb(108, 108, 108);
+  --secondary: rgb(149, 147, 147);
+  --bg-dark: #242424;
   --bg-light: #f8fafc;
-  --text-dark: #1e293b;
+  --text-dark: #000000;
   --text-light: #f8fafc;
   --radius: 12px;
   --shadow: 0 8px 24px rgba(0,0,0,0.2);
@@ -24,13 +24,20 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-light);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 header {
   text-align: center;
   padding: 2rem 1rem;
-  background: linear-gradient(135deg, #1e293b, #334155);
+  background: linear-gradient(135deg, var(--primary), var(--primary));
   box-shadow: var(--shadow);
+  animation: fadeDown 1s ease-out forwards;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 header h1 {
@@ -59,12 +66,10 @@ nav a {
   transition: background 0.3s, transform 0.3s;
 }
 
-nav a:hover {
-  background: var(--primary);
-  transform: translateY(-2px);
-}
+nav a:hover { background: var(--primary); transform: translateY(-2px) scale(1.05); }
 
 .section {
+    
   max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
@@ -72,7 +77,23 @@ nav a:hover {
   color: var(--text-dark);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  opacity: 1; /* make it visible by default */
+  transform: translateY(0); /* reset transform */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section.show h2,
+.section.show p,
+.section.show img {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .section h2 {
   font-size: 1.75rem;
@@ -80,7 +101,12 @@ nav a:hover {
   margin-bottom: 1rem;
   text-align: center;
   color: var(--primary);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
+.section.show h2 { opacity: 1; transform: translateY(0); }
 
 .profiles, .contacts, .resume {
   display: flex;
@@ -92,33 +118,44 @@ nav a:hover {
 .profiles a {
   margin: 0 1rem;
   display: inline-block;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.profiles a:hover { transform: scale(1.1); }
+.profiles a:hover { transform: scale(1.1) rotate(-2deg); box-shadow: 0 8px 16px rgba(0,0,0,0.25); }
 
 .profiles img, .resume img {
   width: 60px;
   height: 60px;
   border-radius: var(--radius);
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.4s, opacity 0.4s;
+  opacity: 1;
+  transform: scale(0.8);
 }
+
+.section.show .profiles img,
+.section.show .resume img { opacity: 1; transform: scale(1); }
 
 .contacts p {
   font-size: 1.1em;
   margin: 0.25rem 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.contacts a { color: var(--primary); text-decoration: none; }
-.contacts a:hover { text-decoration: underline; }
+.section.show .contacts p { opacity: 1; transform: translateY(0); }
+
+.contacts a { color: var(--primary); text-decoration: none; transition: color 0.3s; }
+.contacts a:hover { text-decoration: underline; color: #555; }
 
 .resume a {
   text-align: center;
   color: var(--text-dark);
   text-decoration: none;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.resume a:hover { transform: scale(1.05); }
+.resume a:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
 
 .resume img {
   width: 120px;
@@ -141,11 +178,17 @@ nav a:hover {
   box-shadow: var(--shadow);
   cursor: pointer;
   transition: transform 0.3s;
+  animation: bounce 2s infinite;
 }
 
-.fixed-chat-btn:hover { transform: scale(1.1); }
+.fixed-chat-btn:hover { transform: scale(1.15); }
 
 .fixed-chat-btn img { width: 36px; height: 36px; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
 
 .chatbox {
   position: fixed;
@@ -249,64 +292,63 @@ footer {
 </footer>
 
 <script>
+// Reveal sections on scroll
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+sections.forEach(sec => {
+  // Show immediately if section is already visible
+  if(sec.getBoundingClientRect().top < window.innerHeight){
+    sec.classList.add('show');
+  } else {
+    observer.observe(sec);
+  }
+});
+
 function toggleChat() {
   const chat = document.getElementById('chatbox');
   chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// WebSocket connection
+// WebSocket
 let socket;
-
 function connectSocket() {
   socket = new WebSocket('ws://localhost:3000');
-
   socket.addEventListener('open', () => console.log("🟢 Connected to server"));
   socket.addEventListener('message', event => {
     const messages = document.getElementById("messages");
     let data;
-    try {
-      data = JSON.parse(event.data);
+    try { data = JSON.parse(event.data);
       if (data.type === "history" && Array.isArray(data.messages)) {
         data.messages.forEach(msg => messages.innerHTML += `<p><strong>${msg.author}:</strong> ${msg.content}</p>`);
       } else if (data.type === "chat" || data.type === "discord") {
         messages.innerHTML += `<p><strong>${data.author}:</strong> ${data.content}</p>`;
       }
-    } catch {
-      messages.innerHTML += `<p>${event.data}</p>`;
-    }
+    } catch { messages.innerHTML += `<p>${event.data}</p>`; }
     messages.scrollTop = messages.scrollHeight;
   });
-
-  socket.addEventListener('close', () => {
-    console.log('🔴 Disconnected, reconnecting in 2s');
-    setTimeout(connectSocket, 2000);
-  });
+  socket.addEventListener('close', () => setTimeout(connectSocket, 2000));
 }
-
 connectSocket();
 
 async function sendMessage() {
   const input = document.getElementById("messageToSend");
-  const msg = input.value.trim();
-  if (!msg) return;
-
+  const msg = input.value.trim(); if(!msg) return;
   const messages = document.getElementById("messages");
   messages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
   messages.scrollTop = messages.scrollHeight;
-
-  if (!socket) return;
-  if (socket.readyState === WebSocket.CONNECTING) {
-    await new Promise(resolve => socket.addEventListener("open", resolve, { once: true }));
-  }
-  if (socket.readyState === WebSocket.OPEN) {
-    socket.send(msg);
-    input.value = "";
-  }
+  if(!socket) return;
+  if(socket.readyState === WebSocket.CONNECTING) await new Promise(res => socket.addEventListener("open", res, {once:true}));
+  if(socket.readyState === WebSocket.OPEN){ socket.send(msg); input.value = ""; }
 }
-
-document.getElementById("messageToSend").addEventListener("keydown", event => {
-  if (event.key === "Enter") { event.preventDefault(); sendMessage(); }
-});
+document.getElementById("messageToSend").addEventListener("keydown", e=>{ if(e.key==="Enter"){ e.preventDefault(); sendMessage(); } });
 </script>
 
 </body>

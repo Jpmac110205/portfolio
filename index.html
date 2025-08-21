@@ -7,11 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary: #4f46e5;
-  --secondary: #1f2937;
-  --bg-dark: #0f172a;
+  --primary: rgb(108, 108, 108);
+  --secondary: rgb(149, 147, 147);
+  --bg-dark: #242424;
   --bg-light: #f8fafc;
-  --text-dark: #1e293b;
+  --text-dark: #000000;
   --text-light: #f8fafc;
   --radius: 12px;
   --shadow: 0 8px 24px rgba(0,0,0,0.2);
@@ -24,13 +24,20 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-light);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 header {
   text-align: center;
   padding: 2rem 1rem;
-  background: linear-gradient(135deg, #1e293b, #334155);
+  background: linear-gradient(135deg, var(--primary), var(--primary));
   box-shadow: var(--shadow);
+  animation: headerFade 1s ease-out forwards;
+}
+
+@keyframes headerFade {
+  from { opacity: 0; transform: translateY(-20px);}
+  to { opacity: 1; transform: translateY(0);}
 }
 
 header h1 {
@@ -61,7 +68,7 @@ nav a {
 
 nav a:hover {
   background: var(--primary);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .section {
@@ -72,6 +79,14 @@ nav a:hover {
   color: var(--text-dark);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section h2 {
@@ -96,12 +111,28 @@ nav a:hover {
   border-radius: 50%;
   box-shadow: var(--shadow);
   border: 2px solid var(--primary);
+  transform: translateX(-50px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.about.show img {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .about p {
   flex: 1;
   font-size: 1rem;
   color: var(--text-dark);
+  transform: translateX(50px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.about.show p {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .projects-languages {
@@ -121,8 +152,8 @@ nav a:hover {
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.25);
 }
 
 .card ul {
@@ -147,6 +178,11 @@ nav a:hover {
   width: 48px;
   height: 48px;
   filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+  transition: transform 0.3s;
+}
+
+.icon-track img:hover {
+  transform: scale(1.2) rotate(10deg);
 }
 
 @keyframes marquee {
@@ -177,15 +213,21 @@ footer {
   box-shadow: var(--shadow);
   cursor: pointer;
   transition: transform 0.3s;
+  animation: bounce 2s infinite;
 }
 
 .fixed-chat-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .fixed-chat-btn img {
   width: 36px;
   height: 36px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 .chatbox {
@@ -289,6 +331,19 @@ footer {
 </footer>
 
 <script>
+// Scroll reveal for sections
+const sections = document.querySelectorAll('.section, .about');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+
 function toggleChat() {
   const chat = document.getElementById('chatbox');
   chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
@@ -307,4 +362,3 @@ function sendMessage() {
 
 </body>
 </html>
-<!DOCTYPE html>
