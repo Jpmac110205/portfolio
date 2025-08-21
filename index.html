@@ -301,11 +301,11 @@
 
 
 <nav>
-   <a href="./index.html">About Me</a>
-<a href="./contact.html">Contact</a>
-<a href="./projects.html">Projects</a>
-
+  <a href="./index.html">About Me</a>
+  <a href="./contact.html">Contact</a>
+  <a href="./projects.html">Projects</a>
 </nav>
+
 <div class="container">
     <div class="main-content">
         <div class="skinny-box">
@@ -429,7 +429,6 @@ let socket;
 
 // Connect once when the page loads
 function connectSocket() {
-    socket = new WebSocket('ws://localhost:3000');
 
     socket.addEventListener('open', () => {
         console.log("🟢 Connected to server");
