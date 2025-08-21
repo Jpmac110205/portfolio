@@ -1,304 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - James McAllister</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-        }
-
-        header {
-            background-color: #d5d6d8;
-            color: #000;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: 600;
-            
-            letter-spacing: 2px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 8px 0;
-            font-family: 'Times New Roman', Times, serif;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 1px;
-            margin: 0 12px;
-            transition: background-color 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #71747a;
-            border-radius: 4px;
-            padding: 8px 12px;
-            font-weight: 600;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 30px auto 20px;
-            padding: 35px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #d5d6d8;
-            border-radius: 8px;
-            border: 2px solid #000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-image: url('https://i.imgur.com/ZgQbD7F.jpeg');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .main-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 20px;
-            width: 100%;
-        }
-
-        .content-box, .skinny-box {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-
-        .content-box {
-            width: 48%;
-        }
-
-        .content-box h2, .skinny-box h2 {
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: 600;
-            color: #333;
-            margin: 0 0 10px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-            font-size: 1.5em;
-        }
-
-        .content-box p, .skinny-box p {
-            font-size: 1em;
-            color: #555;
-            text-align: center;
-        }
-
-        .skinny-box {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 0;
-        }
-
-        .right-box { 
-            margin-left: auto;
-            width: 65%;}
-        .center-box { margin: auto; }
-        .left-box {
-             margin-right: auto;
-             width: 65%
-         }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        footer p {
-            font-family: 'Times New Roman', Times, serif;
-            margin: 0;
-            font-size: 1em;
-        }
-        .popup-box {
-      position: fixed;
-      bottom: 100px;
-      right: 20px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      display: none; /* hidden by default */
-      z-index: 999;
-      max-width: 250px;
-        }
-
-/*GIFS*/
-.gif-box {
-    background-image: url('https://i.imgur.com/ZgQbD7F.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 48%;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James McAllister - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #4f46e5;
+  --secondary: #1f2937;
+  --bg-dark: #0f172a;
+  --bg-light: #f8fafc;
+  --text-dark: #1e293b;
+  --text-light: #f8fafc;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
-        
-        
-        
-        /* Banner styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .banner-container {
-    position: relative;
-    width: 100%;
-}
-.banner-container img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
-.banner-text {
-    position: absolute;
-    top: 50%;     
-    left: 5%;     
-    transform: translate(0, -50%);  
-    color: black;
-    font-size: 1.2em;
-    text-align: left;
-    font-family: 'Times New Roman', Times, serif;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-}
-.fixed-circle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 70px;
-      height: 70px;
-      background-color: rgb(168, 176, 175);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 1000;
-    }
-
-    .fixed-circle img {
-      width: 40px;
-      height: 40px;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-
-
-
-
-    .active {
-      background-color: #717171;
-    }
-    .chatbox {
-      visibility: hidden;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 500px;
-    height: 400px; 
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    display: none; 
-    z-index: 999;
-    display: flex;
-    flex-direction: column; 
-}
-#messages {
-    flex: 1; 
-    overflow-y: auto;
-    padding: 10px;
-    box-sizing: border-box;
-    max-height: 100%;
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  box-shadow: var(--shadow);
 }
 
-#messageToSend {
-    width: calc(100% - 20px);
-    margin: 5px 10px;
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-.chatbox button {
-    margin: 5px 10px;
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: var(--secondary);
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-.about-photo {
-    float: right;
-    width: 150px;      
-    height: 150px;     
-    object-fit: cover;
-    margin: 0 0 10px 20px; /* Top, Right, Bottom, Left */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: background 0.3s, transform 0.3s;
 }
+
+nav a:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+
+.section {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--primary);
+}
+
+.project-card {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+}
+
+.project-card img {
+  border-radius: var(--radius);
+  margin: 0.5rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .icon-marquee {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-    position: relative;
-    height: 60px;
-    margin-top: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 1rem;
 }
 
 .icon-track {
-   display: inline-block;
-    white-space: nowrap;
-    animation: marquee 18s linear infinite;
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+  display: inline-block;
+  animation: marquee 20s linear infinite;
 }
 
 .icon-track img {
-    display: inline-block;
-    margin: 0 16px;
-    vertical-align: middle;
+  margin: 0 12px;
+  vertical-align: middle;
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-    </style>
+.fixed-chat-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.fixed-chat-btn:hover { transform: scale(1.1); }
+
+.fixed-chat-btn img { width: 36px; height: 36px; }
+
+.chatbox {
+  position: fixed;
+  bottom: 110px;
+  right: 20px;
+  width: 400px;
+  max-height: 500px;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatbox #messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.chatbox input {
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  margin: 0.5rem 1rem;
+  padding: 0.5rem;
+  width: calc(100% - 2rem);
+}
+
+.chatbox button {
+  margin: 0.5rem 1rem 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--primary);
+  color: var(--bg-light);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  background: var(--secondary);
+  color: var(--text-light);
+  margin-top: 2rem;
+  box-shadow: var(--shadow);
+}
+</style>
 </head>
 <body>
 
-
+<header>
+  <h1>James McAllister</h1>
+</header>
 
 <nav>
   <a href="./index.html">About Me</a>
@@ -306,182 +214,108 @@
   <a href="./projects.html">Projects</a>
 </nav>
 
-<div class="container">
-    <div class="main-content">
-        <div class="skinny-box">
-            <h2>Portfolio Website</h2>
-            <p> This is what you are currently on and it is a portfolio website showcasing my projects and skills in software development.
-                This website is built using HTML, CSS, and JavaScript, and it also includes a chat feature that allows you to interact with me in real-time
-                using a WebSocket connection. The chat feature is powered by a Node.js server that handles the communication between the client and the server.
-                The website is designed to be responsive and user-friendly, with a clean and modern layout that highlights my work and achievements.
-            </p>
-        </div>
-        <br>
-    </div>
-    <div class="main-content">
-        <div class="skinny-box">
-            <h2>Black Jack</h2>
-            <p>This is a simple black jack game that I made using Java, and Swift. It is a single-player game where you can play against the dealer.
-                The game is designed to be easy to use and understand, with a clean layout that makes it easy to play and understand. 
-                This game has a working dealer which abides by the rules of the game, a fully functioning betting system and the physical 
-                cards that the player recieves is displayed. You can find the source code on my GitHub page.
-                <br><br>
-            <img src="https://i.imgur.com/y5MkgFZ.png" alt="Black Jack Image 1" width="300" style="border-radius:8px;">
-            <img src="https://i.imgur.com/pZQ35zc.png" alt="Black Jack Image 2" width="300" style="border-radius:8px;">
-            <img src="https://i.imgur.com/oZqiM8L.png" alt="Black Jack Image 3" width="300" style="border-radius:8px;">
-            </p>
-            </div>
-            <div class = "main-content">
-                <div class = "skinny-box">
-                    <h2>BeneFIT</h2>
-                    <p>
-                        BeneFIT is an interactive fitness app designed to make tracking health and wellness goals both engaging and effective. 
-                        It combines core functionality like calorie tracking, workout logging, and goal setting with a user-friendly interface
-                        and real-time feedback through charts and personal stats. Users can monitor their fitness progress and stay motivated 
-                        with visual data and milestone challenges. What sets BeneFIT apart is its strong social and competitive elements. The 
-                        app includes a friends system, ranked leaderboard, and customizable user profiles to foster community and accountability. 
-                        With secure signup/login and authorization systems in place, users can confidently track their journey, connect with others, 
-                        and push their limits—all within one seamless platform.
-                        <br><br>
-            <img src="https://i.imgur.com/uexdKm0.png" alt="BeneFIT 1" width="150" height= "300" style="border-radius:8px;">
-            <img src="https://i.imgur.com/UmkhwhL.png" alt="BeneFIT 2" width="150" height = "300" style ="border-radius:8px;">
-            <img src="https://i.imgur.com/qxxyTQy.png" alt="BeneFIT 3" width="150"height = "300" style="border-radius:8px;">
-             <img src="https://i.imgur.com/rij2r9u.png" alt="BeneFIT 4" width="150"height = "300" style="border-radius:8px;">
-            <img src="https://i.imgur.com/Ee6ZjgW.png" alt="BeneFIT 5" width="150"height = "300" style="border-radius:8px;">
-            <img src="https://i.imgur.com/nQI7HGR.png" alt="BeneFIT 6" width="150"height = "300" style="border-radius:8px;">
+<section class="section projects-container">
 
-                    </p>
-                </div>
-            </div>
+  <div class="project-card">
+    <h2>Portfolio Website</h2>
+    <p>This portfolio website showcases my projects and skills in software development. Built with HTML, CSS, and JavaScript, it includes a real-time chat feature powered by Node.js and WebSocket for interactive communication.</p>
+  </div>
+
+  <div class="project-card">
+    <h2>Black Jack</h2>
+    <p>A single-player Black Jack game developed with Java and Swift. Features a working dealer, betting system, and visual card display. Source code available on GitHub.</p>
+    <img src="https://i.imgur.com/y5MkgFZ.png" alt="Black Jack Image 1">
+    <img src="https://i.imgur.com/pZQ35zc.png" alt="Black Jack Image 2">
+    <img src="https://i.imgur.com/oZqiM8L.png" alt="Black Jack Image 3">
+  </div>
+
+  <div class="project-card">
+    <h2>BeneFIT</h2>
+    <p>BeneFIT is an interactive fitness app for tracking health goals. Features include calorie tracking, workout logging, social connections, leaderboards, and visual progress charts. Secure authentication ensures safe user data management.</p>
+    <img src="https://i.imgur.com/uexdKm0.png" alt="BeneFIT 1">
+    <img src="https://i.imgur.com/UmkhwhL.png" alt="BeneFIT 2">
+    <img src="https://i.imgur.com/qxxyTQy.png" alt="BeneFIT 3">
+    <img src="https://i.imgur.com/rij2r9u.png" alt="BeneFIT 4">
+    <img src="https://i.imgur.com/Ee6ZjgW.png" alt="BeneFIT 5">
+    <img src="https://i.imgur.com/nQI7HGR.png" alt="BeneFIT 6">
+  </div>
+
+</section>
+
+<div class="fixed-chat-btn" onclick="toggleChat()">
+  <img src="https://icons.veryicon.com/png/o/miscellaneous/2px-common-icons/message-63.png" alt="Chat">
 </div>
 
-
-<div class = "fixed-circle" onclick="togglePopup()">
-    <div class="circle">
-        <img src="https://icons.veryicon.com/png/o/miscellaneous/2px-common-icons/message-63.png" alt="Chatbot Icon">
-    </div>
-    <div id="popup" class="popup-box">
-        <p>Chatting With ____</p>
-      </div>
-</div>
 <div id="chatbox" class="chatbox">
   <div id="messages"></div>
-  <input id="messageToSend" type="text" placeholder="Type a message..." />
-  <button onclick="sendMessage()">Send Message</button>
+  <input id="messageToSend" type="text" placeholder="Type a message...">
+  <button onclick="sendMessage()">Send</button>
 </div>
-</div>>
+
 <footer>
-    <p>James McAllister</p>
+  <p>James McAllister © 2025</p>
 </footer>
 
-</body>
-
-<!-- JAVA SCRIPTTTTTTT-->
-
-
-
-
-
-
-
-
-
-
 <script>
-    function togglePopup() {
-  const popup = document.getElementById('chatbox');
-  if (popup.style.visibility === 'visible') {
-    popup.style.visibility = 'hidden';
-    popup.style.opacity = '0';
-  } else {
-    popup.style.visibility = 'visible';
-    popup.style.opacity = '1';
-  }
+function toggleChat() {
+  const chat = document.getElementById('chatbox');
+  chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
 }
 
-    
-
-  
-// WebSocket connection setup
+// WebSocket connection
 let socket;
 
-// Connect once when the page loads
 function connectSocket() {
-    socket = new WebSocket('ws://localhost:3000');
+  socket = new WebSocket('ws://localhost:3000');
 
-    socket.addEventListener('open', () => {
-        console.log("🟢 Connected to server");
-    });
+  socket.addEventListener('open', () => console.log("🟢 Connected to server"));
+  socket.addEventListener('message', event => {
+    const messages = document.getElementById("messages");
+    let data;
+    try {
+      data = JSON.parse(event.data);
+      if (data.type === "history" && Array.isArray(data.messages)) {
+        data.messages.forEach(msg => messages.innerHTML += `<p><strong>${msg.author}:</strong> ${msg.content}</p>`);
+      } else if (data.type === "chat" || data.type === "discord") {
+        messages.innerHTML += `<p><strong>${data.author}:</strong> ${data.content}</p>`;
+      }
+    } catch {
+      messages.innerHTML += `<p>${event.data}</p>`;
+    }
+    messages.scrollTop = messages.scrollHeight;
+  });
 
-    socket.addEventListener('message', event => {
-        console.log('Received from server:', event.data);
-        const messageArea = document.getElementById("messages");
-        let data;
-        try {
-            data = JSON.parse(event.data);
-            // Handle different message types
-            if (data.type === "history" && Array.isArray(data.messages)) {
-                data.messages.forEach(msg =>
-                    messageArea.innerHTML += `<p><strong>${msg.author}:</strong> ${msg.content}</p>`
-                );
-            } else if (data.type === "chat" || data.type === "discord") {
-                messageArea.innerHTML += `<p><strong>${data.author}:</strong> ${data.content}</p>`;
-            }
-        } catch (ex) {
-            messageArea.innerHTML += `<p>${event.data}</p>`;
-        }
-        messageArea.scrollTop = messageArea.scrollHeight;
-    });
-
-    socket.addEventListener('error', err => {
-        console.error('WebSocket error:', err);
-    });
-
-    socket.addEventListener('close', () => {
-        console.log('🔴 Disconnected');
-        // Optionally, try to reconnect after a delay
-        setTimeout(connectSocket, 2000);
-    });
+  socket.addEventListener('close', () => {
+    console.log('🔴 Disconnected, reconnecting in 2s');
+    setTimeout(connectSocket, 2000);
+  });
 }
 
-// Call connectSocket once on page load
 connectSocket();
 
 async function sendMessage() {
-    const input = document.getElementById("messageToSend");
-    const msg = input.value.trim();
-    if (!msg) return;
+  const input = document.getElementById("messageToSend");
+  const msg = input.value.trim();
+  if (!msg) return;
 
-    // Display the message in the chatbox immediately
-    const messageArea = document.getElementById("messages");
-    messageArea.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
-    messageArea.scrollTop = messageArea.scrollHeight;
+  const messages = document.getElementById("messages");
+  messages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
+  messages.scrollTop = messages.scrollHeight;
 
-    // FIX: Check if socket is initialized
-    if (!socket) {
-        console.error("WebSocket is not initialized.");
-        return;
-    }
-
-    if (socket.readyState === WebSocket.CONNECTING) {
-        await new Promise(resolve => {
-            socket.addEventListener("open", resolve, { once: true });
-        });
-    }
-
-    if (socket.readyState === WebSocket.OPEN) {
-        socket.send(msg);
-        input.value = "";
-    } else {
-        console.error("Socket isn’t open (state=", socket.readyState, ")");
-    }
+  if (!socket) return;
+  if (socket.readyState === WebSocket.CONNECTING) {
+    await new Promise(resolve => socket.addEventListener("open", resolve, { once: true }));
+  }
+  if (socket.readyState === WebSocket.OPEN) {
+    socket.send(msg);
+    input.value = "";
+  }
 }
 
-document.getElementById("messageToSend").addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        sendMessage();
-    }
+document.getElementById("messageToSend").addEventListener("keydown", event => {
+  if (event.key === "Enter") { event.preventDefault(); sendMessage(); }
 });
 </script>
+
+</body>
 </html>
