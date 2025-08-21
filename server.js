@@ -17,7 +17,7 @@ const paymentRouter = require('./paymentRouter');
 app.use('/payment', paymentRouter);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'COMMISION.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/projects', (req, res) => {
