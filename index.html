@@ -7,266 +7,72 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary: rgb(108, 108, 108);
-  --secondary: rgb(149, 147, 147);
+  --primary: #6c6c6c;
+  --secondary: #959393;
   --bg-dark: #242424;
   --bg-light: #f8fafc;
-  --text-dark: #000000;
+  --text-dark: #000;
   --text-light: #f8fafc;
   --radius: 12px;
   --shadow: 0 8px 24px rgba(0,0,0,0.2);
+  --accent: #1e90ff;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-dark);
-  color: var(--text-light);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+body { font-family: 'Inter', sans-serif; background: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
 
 header {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, var(--primary), var(--primary));
+  text-align: center; padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   box-shadow: var(--shadow);
-  animation: headerFade 1s ease-out forwards;
+  animation: fadeDown 1s ease-out forwards;
 }
-
-@keyframes headerFade {
-  from { opacity: 0; transform: translateY(-20px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-
-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: 1px; }
 
 nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  background: var(--secondary);
-  padding: 0.75rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  display: flex; justify-content: center; gap: 2rem; background: var(--secondary);
+  padding: 0.75rem 0; position: sticky; top: 0; z-index: 100;
 }
+nav a { color: var(--text-light); text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border-radius: var(--radius); transition: background 0.3s, transform 0.3s; }
+nav a:hover { background: var(--accent); transform: translateY(-2px) scale(1.05); }
 
-nav a {
-  color: var(--text-light);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius);
-  transition: background 0.3s, transform 0.3s;
-}
+.section { max-width: 1100px; margin: 2rem auto; padding: 2rem; background: var(--bg-light); color: var(--text-dark); border-radius: var(--radius); box-shadow: var(--shadow); opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.section.show { opacity: 1; transform: translateY(0); }
+.section h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; text-align: center; color: var(--primary); }
 
-nav a:hover {
-  background: var(--primary);
-  transform: translateY(-2px) scale(1.05);
-}
+.about { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center; }
+.about img { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; box-shadow: var(--shadow); border: 2px solid var(--primary); transform: translateX(-50px); opacity: 0; transition: transform 1s ease, opacity 1s ease; }
+.about.show img { transform: translateX(0); opacity: 1; }
+.about p { flex: 1; min-width: 280px; font-size: 1rem; color: var(--text-dark); transform: translateX(50px); opacity: 0; transition: transform 1s ease, opacity 1s ease; }
+.about.show p { transform: translateX(0); opacity: 1; }
 
-.section {
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: var(--bg-light);
-  color: var(--text-dark);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
+.projects-languages { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.card { padding: 2rem; background: var(--bg-light); color: var(--text-dark); border-radius: var(--radius); box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
+.card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 16px 36px rgba(0,0,0,0.25); }
+.card ul { list-style: inside disc; padding-left: 0; }
 
-.section.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+.icon-marquee { overflow: hidden; white-space: nowrap; margin-top: 1rem; }
+.icon-track { display: inline-block; animation: marquee 20s linear infinite; }
+.icon-track img { margin: 0 12px; vertical-align: middle; width: 48px; height: 48px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); transition: transform 0.3s; }
+.icon-track img:hover { transform: scale(1.2) rotate(10deg); }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-.section h2 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: var(--primary);
-}
+.footer { text-align:center; padding:1.5rem 0; background:var(--secondary); color:var(--text-light); margin-top:2rem; box-shadow:var(--shadow); }
 
-.about {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: flex-start;
-}
+.fixed-chat-btn { position: fixed; bottom: 20px; right: 20px; width: 70px; height: 70px; background: var(--primary); border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow: var(--shadow); cursor:pointer; transition: transform 0.3s; animation: bounce 2s infinite; }
+.fixed-chat-btn:hover { transform: scale(1.15); }
+.fixed-chat-btn img { width: 36px; height: 36px; }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
-.about img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: var(--shadow);
-  border: 2px solid var(--primary);
-  transform: translateX(-50px);
-  opacity: 0;
-  transition: transform 1s ease, opacity 1s ease;
-}
+.chatbox { position: fixed; bottom: 110px; right: 20px; width: 400px; max-height: 500px; background: var(--bg-light); color: var(--text-dark); border-radius: var(--radius); box-shadow: var(--shadow); display: none; flex-direction: column; overflow: hidden; }
+.chatbox #messages { flex:1; overflow-y:auto; padding:1rem; }
+.chatbox input { border:1px solid #ccc; border-radius: var(--radius); margin:0.5rem 1rem; padding:0.5rem; width: calc(100% - 2rem); }
+.chatbox button { margin:0.5rem 1rem 1rem; padding:0.5rem 1rem; border:none; background: var(--accent); color: var(--bg-light); border-radius: var(--radius); cursor:pointer; }
 
-.about.show img {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.about p {
-  flex: 1;
-  font-size: 1rem;
-  color: var(--text-dark);
-  transform: translateX(50px);
-  opacity: 0;
-  transition: transform 1s ease, opacity 1s ease;
-}
-
-.about.show p {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.projects-languages {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.card {
-  padding: 2rem;
-  background: var(--bg-light);
-  color: var(--text-dark);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.25);
-}
-
-.card ul {
-  list-style: inside disc;
-  padding-left: 0;
-}
-
-.icon-marquee {
-  overflow: hidden;
-  white-space: nowrap;
-  margin-top: 1rem;
-}
-
-.icon-track {
-  display: inline-block;
-  animation: marquee 20s linear infinite;
-}
-
-.icon-track img {
-  margin: 0 12px;
-  vertical-align: middle;
-  width: 48px;
-  height: 48px;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
-  transition: transform 0.3s;
-}
-
-.icon-track img:hover {
-  transform: scale(1.2) rotate(10deg);
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-footer {
-  text-align: center;
-  padding: 1.5rem 0;
-  background: var(--secondary);
-  color: var(--text-light);
-  margin-top: 2rem;
-  box-shadow: var(--shadow);
-}
-
-.fixed-chat-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 70px;
-  height: 70px;
-  background: var(--primary);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  transition: transform 0.3s;
-  animation: bounce 2s infinite;
-}
-
-.fixed-chat-btn:hover {
-  transform: scale(1.15);
-}
-
-.fixed-chat-btn img {
-  width: 36px;
-  height: 36px;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.chatbox {
-  position: fixed;
-  bottom: 110px;
-  right: 20px;
-  width: 400px;
-  max-height: 500px;
-  background: var(--bg-light);
-  color: var(--text-dark);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.chatbox #messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1rem;
-}
-
-.chatbox input {
-  border: 1px solid #ccc;
-  border-radius: var(--radius);
-  margin: 0.5rem 1rem;
-  padding: 0.5rem;
-  width: calc(100% - 2rem);
-}
-
-.chatbox button {
-  margin: 0.5rem 1rem 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  background: var(--primary);
-  color: var(--bg-light);
-  border-radius: var(--radius);
-  cursor: pointer;
+@media (max-width: 768px) {
+  .about { flex-direction: column; text-align: center; }
+  .about p { transform: translateY(20px); }
 }
 </style>
 </head>
@@ -282,11 +88,13 @@ footer {
   <a href="./projects.html">Projects</a>
 </nav>
 
+<!-- Hero / About Section -->
 <section class="section about">
   <img src="https://i.imgur.com/RVNbFun.jpeg" alt="James McAllister">
   <p>Hello, I’m James, a Software Engineering sophomore at Shippensburg University with minors in CS, Math, and Data Science. I maintain a 3.6 GPA and actively participate in the Wood Honors College, Programming Team, and Club Lacrosse. My focus is building scalable software and AI applications through hands-on projects.</p>
 </section>
 
+<!-- Projects & Languages -->
 <section class="section projects-languages">
   <div class="projects card">
     <h2>Projects</h2>
@@ -316,6 +124,27 @@ footer {
   </div>
 </section>
 
+<!-- Education & Experience -->
+<section class="section card">
+  <h2>Education & Experience</h2>
+  <ul>
+    <li>Shippensburg University - B.S. Software Engineering (Sophomore)</li>
+    <li>Minors: Computer Science, Mathematics, Data Science</li>
+    <li>Programming Team Member, Wood Honors College, Club Lacrosse</li>
+    <li>Internship: [Add Internship / Work Experience]</li>
+  </ul>
+</section>
+
+<!-- Achievements / Certifications -->
+<section class="section card">
+  <h2>Achievements & Certifications</h2>
+  <ul>
+    <li>[Add Awards / Scholarships / Honors]</li>
+    <li>[Add Online Certifications, e.g., Coursera, Udemy]</li>
+  </ul>
+</section>
+
+
 <div class="fixed-chat-btn" onclick="toggleChat()">
   <img src="https://icons.veryicon.com/png/o/miscellaneous/2px-common-icons/message-63.png" alt="Chat">
 </div>
@@ -326,7 +155,7 @@ footer {
   <button onclick="sendMessage()">Send</button>
 </div>
 
-<footer>
+<footer class="footer">
   <p>James McAllister © 2025</p>
 </footer>
 
@@ -335,14 +164,13 @@ footer {
 const sections = document.querySelectorAll('.section, .about');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if(entry.isIntersecting){
       entry.target.classList.add('show');
       observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.2 });
-
-sections.forEach(section => observer.observe(section));
+sections.forEach(sec => observer.observe(sec));
 
 function toggleChat() {
   const chat = document.getElementById('chatbox');
@@ -359,6 +187,5 @@ function sendMessage() {
   messages.scrollTop = messages.scrollHeight;
 }
 </script>
-
 </body>
 </html>
