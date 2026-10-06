@@ -1,19 +1,23 @@
- {
-  "name": "clientwebsite",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+{
+  "name": "james-mcallister-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "James McAllister's software engineering portfolio",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "playwright test",
+    "resume": "node scripts/generate-resume.js"
   },
-  "author": "",
-  "license": "ISC",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.56.0",
+    "vite": "^7.1.0"
+  },
   "dependencies": {
-    "discord.js": "^14.18.0",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "express-ws": "^5.0.2",
-    "path": "^0.12.7",
-    "stripe": "^18.0.0"
+    "@fontsource/dm-mono": "^5.2.0",
+    "@fontsource/dm-sans": "^5.2.0"
   }
 }
